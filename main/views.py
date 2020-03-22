@@ -74,7 +74,7 @@ def path_delete(requests):
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 ########### 이 밑에 있는 함수들을 모두 짠 후 배포 직전에 모두 한 번씩 실행하여 데이터베이스를 초기화 해주셔야 합니다. #################
-def get_ulsan_mask_stores():
+def get_mask_stores():
     url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json"
     headers = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
@@ -90,7 +90,7 @@ def get_ulsan_mask_stores():
     ]
     ###################################################################################
 
-    ulsan_mask_stores = {
+    mask_stores = {
         'stores': [],
         'count': 0,
     }
@@ -100,11 +100,11 @@ def get_ulsan_mask_stores():
         }
         mask_json = json.loads(requests.get(url, params=params, headers=headers).text)
         # pprint(mask_json)
-        ulsan_mask_stores['count'] += mask_json['count']
-        ulsan_mask_stores['stores'] += mask_json['stores']
+        mask_stores['count'] += mask_json['count']
+        mask_stores['stores'] += mask_json['stores']
 
     newly_registered = []
-    for store in ulsan_mask_stores['stores']:
+    for store in mask_stores['stores']:
         addr = store["addr"] if "addr" in store and store["addr"] else None
         code = store["code"] if "code" in store and store["code"] else None
         # created_at = date_parse(store["created_at"]) if "created_at" in store and store["created_at"] else None
@@ -143,11 +143,11 @@ def get_ulsan_mask_stores():
             mask.save()
 
     update_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log = "{}: Total searched store {}, Newly registered stores: {}".format(update_time, ulsan_mask_stores['count'], newly_registered)
+    log = "{}: Total searched store {}, Newly registered stores: {}".format(update_time, mask_stores['count'], newly_registered)
     print(log)
-    # return ulsan_mask_stores
+    # return mask_stores
 
-def get_ulsan_status():
+def get_status():
     ####################### 자기 지역의 동선 정보를 업데이트해주는 공식 홈페이지로 변경 ###############################
     # url = "http://www.ulsan.go.kr/corona.jsp"
     ####################################################################################################
@@ -164,13 +164,13 @@ def get_ulsan_status():
     # 목록이 추가되면 수정하기
     names = ["infected", "cured"]
 
-    ############# values = [‘확진자 수를 포함한 html 태그’, ‘완치자 수를 포함한 html태그’] 가 되도록 select ##########
-    # values = soup.select(".num_people")
+    ################### values = [‘확진자 수’, ‘완치자 수’] 가 되도록 크롤링해 주세요. ######################
+    # values = []
     #####################################################################################################
 
     statistics = {}
     for i, name in enumerate(names):
-        value = int(values[i].text)
+        value = int(values[i])
         statistics[name] = value
         updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         if Statistics.objects.filter(name=name):
@@ -189,7 +189,7 @@ def get_ulsan_status():
     log = "{}: Current infected patients {}, Current cured patients: {}".format(updated_at, statistics['infected'],  statistics['cured'])
     print(log)
 
-def get_ulsan_patients():
+def get_patients():
     ############################# 각자의 지역에 따라 크롤링을 하셔야 합니다 ##################################
     # url = "http://www.ulsan.go.kr/corona.jsp"
     # headers = {
