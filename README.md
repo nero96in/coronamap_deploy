@@ -1,5 +1,5 @@
 # Django를 이용한 지역 코로나맵 제작 Template
-[울산 코로나맵](https://coronamap-ulsan.site/) 개발진들이 **각 지역의 코로나맵 제작**을 좀 더 쉽고 빠르게 제작할 수 있도록 배포한 Django APP입니다. 아래의 가이드라인을 따라 프로젝트를 제작하여 배포하실 수 있습니다.
+[울산 코로나맵](https://coronamap-ulsan.site/) 개발진들이 **각 지역의 코로나맵 제작**을 좀 더 쉽고 빠르게 제작할 수 있도록 배포한 Django APP입니다. 아래의 가이드라인을 따라 프로젝트를 제작하여 배포하실 수 있습니다. 자신의 지역의 코로나맵을 제작하여 코로나 바이러스 방역에 힘써주세요!
 
 ### 사용한 API
 1. [공공 데이터 포털 공적 마스크 판매 현황 API](https://app.swaggerhub.com/apis-docs/Promptech/public-mask-info/20200307-oas3#/)
