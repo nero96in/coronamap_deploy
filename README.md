@@ -11,6 +11,7 @@
 - **디자인**: [김태윤](https://www.facebook.com/taeyoon.kim.79656)(UNIST 창의 디자인 학과)  
 - 기타 문의: coronaulsan@gmail.com
 
+---
 
 ### 목차
 1. [기능 설명](#기능-설명)
