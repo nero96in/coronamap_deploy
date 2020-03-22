@@ -131,7 +131,11 @@ function displayPlaceInfo (place) {
                 'dataType': 'json',
             },
             success: function(response){
-                alert("확진자 동선을 추가하였습니다.")
+                if(response.type=="success"){
+                    alert(response.message)
+                } else if(response.type=="error"){
+                    alert(response.message)
+                }
             },
             error: function(request, status, error){
                 alert("로그인이 필요합니다.")

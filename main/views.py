@@ -73,6 +73,7 @@ def path_delete(requests):
     }
     return HttpResponse(json.dumps(context), content_type="application/json")
 
+########### 이 밑에 있는 함수들을 모두 짠 후 배포 직전에 모두 한 번씩 실행하여 데이터베이스를 초기화 해주셔야 합니다. #################
 def get_ulsan_mask_stores():
     url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json"
     headers = {
