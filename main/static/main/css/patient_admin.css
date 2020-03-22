@@ -1,0 +1,37 @@
+#map.patient-admin-map {
+    width: 70%;
+}
+
+#patient-admin-tables {
+    margin-left: 70%;
+    height: 100vh;
+    padding: 20px;
+    overflow: scroll;
+}
+
+#places {
+    
+    font-size: 12px;
+}
+
+#places .table td,
+#places .table th{
+    padding: 0.5em;
+}
+
+#places-table,
+#raw-paths-table{
+    height: 40vh;
+    overflow: scroll;
+}
+
+.table-head-fixed {
+    /* position: fixed;
+    width: 100%; */
+}
+
+.search_wrap {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}

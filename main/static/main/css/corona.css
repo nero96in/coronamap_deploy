@@ -1,0 +1,100 @@
+* {margin:0;}
+/* GPS */
+.pulse img{ margin: 0px;padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;left: 0px;top: 0px;}
+.pulse {z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(255, 0, 0);animation: pulse 1.7s infinite;}
+@-webkit-keyframes pulse {
+    0% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);}
+    70% {-webkit-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+    100% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+  }
+  @keyframes pulse {
+    0% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);}
+    70% {-moz-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);
+        box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+    100% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+  }
+
+#map {position: absolute; z-index: 0;}
+/* 주소 검색 */
+/* form{padding-top: 4px !important;} */
+.all_wrapper {padding: 20px;}
+.search_wrap, .search_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
+.search_wrap a, .search_wrap a:hover, .search_wrap a:active{color:#000;text-decoration: none;}
+.search_wrap {position: relative;width:100%; height: 33px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:10;width:330px;margin:0;padding:2px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);}
+.bg_white {background:#fff;}
+#keyword {width:200px;}
+#menu_wrap .option{padding: 0 10px; height: 30px;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:15px;}
+#menu_wrap .option span{display: block; width:30px; height:30px; margin:0; float:right; }
+span.search_icon { background:url(/static/main/image/search-icon.png) no-repeat; background-size: 25px;}
+/* 마커 정보제공 디자인 */
+.wrapper {position: relative; width:242px;}
+.wrapper, .wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+#category {position: relative;top:15px;left:0;border-radius: 10px; border:1px solid rgba(0, 0, 0, 0);box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);background: rgba(255, 255, 255, 0.8); overflow: hidden;z-index: 2; margin-bottom: 10px;}
+#category li {font-weight: 600; font-size: 12px; color:rgba(0, 0, 0, 0.7); margin-top:0;float:left;list-style: none;width:80px;border-right:1px solid #acacac;padding:6px 0px 2px 0px;text-align: center; cursor: pointer;}
+#category li.on {background: #ebebeb;}
+#category li:hover { border-left:1px solid #acacac;margin-left: -1px;}
+#category li:last-child{margin-right:0;border-right:0;}
+#category li span {display: block;margin:0 auto 3px;width:25px;height: 25px;}
+#category li .category_hos { background:url(/static/main/image/hospital-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+#category li .category_mask {background:url(/static/main/image/mask-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+#category li .gps { background:url(/static/main/image/location-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+
+.placeinfo_wrap {position:absolute;bottom:20px;left:-120px;width: 250px;}
+.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.placeinfo span {display: block;text-overflow: initial; white-space: initial;}
+.placeinfo span {/*margin:5px 5px 0 5px;*/cursor: default;font-size:13px;}
+.placeinfo .title {font-weight: bold; font-size:11px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;}
+.placeinfo .ptitle {font-weight: bold; border-radius: 6px 6px 0 0; margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #f99639;}
+.placeinfo .ptitle h1 {font-size: 16px;}
+.placeinfo .ptitle p {font-size: 16px;}
+
+.placeinfo .tel {padding-left:2px; color:rgba(0, 0, 0, 0.8); font-size:15px;}
+.placeinfo .time_at {font-size: 14px;}
+.placeinfo .info_content {line-height: 1.5;}
+.placeinfo .addr {color: #888}
+.placeinfo .patient-addr {font-size: 15px; font-weight: 700; color: #555;}
+.placeinfo .patient-date {font-size: 15px;}
+
+/* GPS 디자인 */
+.gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
+.gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+
+/* 공지 디자인 */
+/* .modal-content{position: absolute !important;} */
+
+.modal-title{font-size:17px; font-weight: 600;}
+.modal-content {border-radius: 1rem !important;}
+.modal-dialog{text-align: center; width:350px !important; margin:auto !important; height:90vh !important; padding-top: 5%; }
+.modal-body{text-align: center; font-size: 15px; padding: 30px 20px !important;}
+.feedback{font-size:13px; text-align: right;}
+.modal-footer{padding:10px !important;}
+.makerinfo{font-size: 12px; text-align: right;}
+
+
+/* legend */
+.legend {position: absolute; margin:20px; right:0; bottom:0; }
+.legend img{bottom:0; width: 340px;}
+body{width:100%; height: 100vh;}
+
+@media screen and (max-width: 750px) {
+  .legend img{width:100%;}
+  #menu_wrap{width:100%}
+  .modal-dialog{width:90% !important; padding-top: 10%;}
+  .modal-title{font-size:15px;}
+  .modal-body{font-size:13px;}
+  .feedback{font-size: 12px;}
+  .makerinfo{font-size: 11px;}
+}
+
+/* #keyword::-webkit-input-placeholder { font-size: 16px; line-height: 26px; }
+#keyword::-moz-placeholder { font-size: 16px; line-height: 26px; }
+#keyword:-ms-input-placeholder { font-size: 16px; line-height: 26px; }
+#keyword:-moz-placeholder { font-size: 16px; line-height: 26px; }
+#keyword::placeholder { font-size: 16px; line-height: 26px; } */

@@ -1,0 +1,97 @@
+* {margin:0;}
+/* GPS */
+.pulse img{
+    margin: 0px;padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;left: 0px;top: 0px;
+}
+.pulse {
+    z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(255, 0, 0);animation: pulse 1.7s infinite;
+  }
+
+@-webkit-keyframes pulse {
+    0% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);}
+    70% {-webkit-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+    100% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+  }
+  @keyframes pulse {
+    0% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);}
+    70% {-moz-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);
+        box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+    100% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+  }
+
+.pulseK img{
+    margin:0; padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;
+}
+.pulseK {
+    z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(0, 0, 255);animation: pulseK 1.7s infinite;
+  }
+.keyword_wrapper{ position:absolute; bottom:0px;left:88px; }
+
+@-webkit-keyframes pulseK {
+    0% {-webkit-box-shadow: 0 0 0 0 rgba(44, 49, 204, 0.5);}
+    70% {-webkit-box-shadow: 0 0 0 20px rgba(44, 49, 204, 0);}
+    100% {-webkit-box-shadow: 0 0 0 0 rgba(44, 49, 204, 0);}
+  }
+  @keyframes pulseK {
+    0% {-moz-box-shadow: 0 0 0 0 rgba(44, 49, 204, 0.5);
+        box-shadow: 0 0 0 0 rgba(44, 49, 204, 0.4);}
+    70% {-moz-box-shadow: 0 0 0 20px rgba(44, 49, 204, 0);
+        box-shadow: 0 0 0 20px rgba(44, 49, 204, 0);}
+    100% {-moz-box-shadow: 0 0 0 0 rgba(44, 49, 204, 0);
+        box-shadow: 0 0 0 0 rgba(44, 49, 204, 0);}
+  }
+#map {position: absolute; z-index: -1;}
+/* 주소 검색 */
+.all_wrapper {padding: 20px 10px;}
+.search_wrap, .search_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.search_wrap a, .search_wrap a:hover, .search_wrap a:active{color:#000;text-decoration: none;}
+.search_wrap {position: relative;width:100%; height: 30px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:200px;margin:0;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#keyword {width:120px;}
+#menu_wrap .option{padding: 0 10px; }
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#menu_wrap .option span{display: block; width:16px; height:16px; margin:0; float:right; }
+span.search_icon { background:url(/static/main/image/search.png) no-repeat; background-size: 16px; padding-top:3px; margin: 0;}
+/* 마커 정보제공 디자인 */
+.wrapper {position: relative; width:202px;}
+.wrapper, .wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+#category {position: relative;top:10px;left:0;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2; margin-bottom: 10px;}
+#category li {margin-top:0;float:left;list-style: none;width:50px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+#category li.on {background: #eee;}
+#category li:hover {background: #ebebeb; border-left:1px solid #acacac;margin-left: -1px;}
+#category li:last-child{margin-right:0;border-right:0;}
+#category li span {display: block;margin:0 auto 3px;width:25px;height: 30px;}
+#category li .category_hos { background:url(/static/main/image/hospital.png) no-repeat; background-size: 25px;}
+#category li .category_post {background:url(/static/main/image/post.png) no-repeat; background-size: 25px;}
+#category li .category_pharmacy {background:url(/static/main/image/pharmacy.png) no-repeat; background-size: 25px;}
+#category li .category_mart { background:url(/static/main/image/mart.png) no-repeat; background-size: 25px;}
+.placeinfo_wrap {position:absolute;bottom:20px;left:-95px;width:200px;}
+.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+.placeinfo .title {font-weight: bold; font-size:11px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;}
+.placeinfo .ptitle {font-weight: bold; font-size:11px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #f99639;}
+.placeinfo .tel {padding-left:2px; color:rgba(0, 0, 0, 0.8); font-size:10px;}
+/* GPS 디자인 */
+.gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
+.gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+#category1 {position: relative;top:10px;left:0;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2; margin-bottom: 30px;}
+#category1 li {margin-top:0;float:left;list-style: none;width:50px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+#category1 li.on {background: #eee;}
+#category1 li:hover {background: #ebebeb; border-left:1px solid #acacac;margin-left: -1px;}
+#category1 li:last-child{margin-right:0;border-right:0;}
+#category1 li span {display: block;margin:0 auto 3px;width:25px;height: 30px;}
+#category1 li .gps { background:url(/static/main/image/location.png) no-repeat; background-size: 25px;}
+
+/* 공지 디자인 */
+
+.modal-dialog{text-align: center; width:340px !important; margin:auto !important; padding-top:60px !important; }
+.modal-body{text-align: center; font-size: 15px; padding: 30px 15px 10px 15px !important;}
+/* .modal-footer{padding:10px !important;} */
+.makerinfo{font-size: 12px; text-align: right;}

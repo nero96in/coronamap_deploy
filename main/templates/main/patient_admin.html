@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:image" content="{% static 'main/thumbnail.jpg' %}">
+    <link rel="stylesheet" href='{% static "main/css/corona.css" %}' media="screen">
+    <link rel="stylesheet" href='{% static "main/css/patient_admin.css" %}' media="screen">
+    <link rel="shortcut icon" href="{% static 'main/favicon.ico'%}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={API 키를 입력하세요}&libraries=services"></script>
+    <title>코로나 울산</title>
+</head>
+
+<body>
+    <!-- 지도를 표시할 div -->
+    <div id="map" class="patient-admin-map" style="height:100vh;"></div>
+    <div id="patient-admin-tables">
+        <div id="places">
+            <h3>확진자 방문 장소</h3>
+            <div id="places-table">
+                <table class="table text-center">
+                    <thead class="table-head-fixed">
+                        <tr class="w-100">
+                            <th scope="col">환자 코드</th>
+                            <th scope="col">방문 장소</th>
+                            <th scope="col">방문 날짜</th>
+                            <th scope="col">변경</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for path in paths %}
+                        <tr>
+                            <th scope="row">{{ path.patient.code }}번</th>
+                            <td>{{ path.place_name }}</td>
+                            <td>{{ path.visited_date }}</td>
+                            <!-- <td>{{ path.visited_date }}</td> -->
+                            <td><a class="path_delete" id="{{ path.pk }}">삭제</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <h3  class="mt-5">확진자 방문 장소 - 울산시 홈페이지</h3>
+            <div id="raw-paths-table">
+                <table class="table text-center">
+                    <thead class="table-head-fixed">
+                        <tr class="w-100">
+                            <th scope="col" style="width:60px;">환자 코드</th>
+                            <th scope="col">방문 장소</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for patient in patients %}
+                        <tr>
+                            <th scope="row">{{ patient.code }}번</th>
+                            <td>{{ patient.paths }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class = "all_wrapper p-0">
+        <div class="search_wrap">
+            <div id="menu_wrap" class="bg_white">
+                <div class="option w-100 d-flex flex-column align-items-center">
+                    <form onsubmit="keysearchPlaces(); return false;" class="d-flex align-items-center justify-content-between w-100">
+                        <input type="text" placeholder="목적지를 검색해주세요" id="keyword"
+                            style="border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);">
+                        <span class="search_icon" onclick="keysearchPlaces();"></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <script src="{% static 'jquery/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function getCsrfToken (place) {
+            var csrf_token = "{{ csrf_token }}"
+            return csrf_token
+        }
+    </script>
+    <script type="text/javascript" src="{% static 'main/js/patient_admin.js' %}"></script>
+</body>
+
+</html>

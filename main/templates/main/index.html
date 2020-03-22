@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:image" content="{% static 'main/thumbnail.jpg' %}">
+    <link rel="stylesheet" href='{% static "main/css/corona.css" %}' media="screen">
+    <link rel="shortcut icon" href="{% static 'main/favicon.ico'%}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={API 키를 입력하세요}&libraries=services"></script>
+    <title>코로나 울산</title>
+</head>
+
+<body>
+    <!-- 지도를 표시할 div -->
+    <div id="map" style="width:100%;height:100vh;"></div>
+    <div class = "all_wrapper">
+        <div class="search_wrap">
+            <div id="menu_wrap" class="bg_white">
+                <div class="option w-100 d-flex flex-column align-items-center">
+                    {% comment %} <div class="w-100"> {% endcomment %}
+                        <form onsubmit="keysearchPlaces(); return false;" class="d-flex align-items-center justify-content-between w-100">
+                            <input type="text" placeholder="목적지를 검색해주세요" id="keyword"
+                                style="border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);">
+                            <span class="search_icon" onclick="keysearchPlaces();"></span>
+                        </form>
+                    {% comment %} </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <ul id="category">
+                <li id="mask"> <span class="category_mask" title="공적 마스크 구매처"></span>마스크 판매처</li>
+                <li id="hospital"> <span class="category_hos" title="코로나19 진료소"></span>코로나 진료소</li>
+                <li> <span class="gps" title="현재 위치 추적"></span>나의 위치</li>
+            </ul>
+        </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="NoticeModal" tabindex="-1" role="dialog" aria-labelledby="NoticeModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center align-items-center">
+            <h4 class="modal-title w-100" id="NoticeModal">&nbsp;&nbsp;&nbsp;&nbsp;공지사항</h4>
+            <button type="button" class="close p-0 pr-3" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <strong>확진 {{ statistics.infected }} | <span style ="color:green">완치  {{ statistics.cured }} </span></strong>
+                <!-- | <span style ="color:red">사망</span> 0</strong><br> -->
+            <br>
+            <br>
+            <strong>울산 지역</strong>만을 대상으로 자세한 정보를 제공하기 위한 코로나맵입니다.<br>
+            <br>
+            <strong>표기된 확진자 경로는 방역소독이 완료되었습니다.</strong>
+            소독 이후에는 바이러스에 위험노출이 없습니다.<br>
+            <br>
+            마스크 정보는 <strong>10분 간격</strong>으로 업데이트 되고 있으나 실제 약국 및 매장의 판매현황과 차이가 있을 수 있습니다.
+            이 점 양해부탁드리며, <strong>마스크 보급을 위해 힘써주시는 분들을 존중해주세요 :)</strong> <br>
+            <br>
+            <br>
+            <div class ="feedback">
+                <strong>피드백 및 오류제보</strong> | coronaulsan@gmail.com<br>
+            </div>
+            <br>
+            <div class = "makerinfo">
+                API | KAKAO MAP<br>
+                자료 출처 | 울산 시민건강과, 공공데이터포탈<br>
+                개발자 | 김지완, 전대성, 김태윤 (UNIST)<br>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+      <img src="{% static 'main/image/legend.png' %}" alt="">
+  </div>
+
+
+  
+  
+    <!-- Latest compiled and minified JavaScript -->
+    <script>
+        var image_url = "{% static 'main/image/' %}"
+        var json_url = "{% static 'main/json/' %}"
+        var masks = []
+        {% for mask in masks %}
+            mask = {}
+            mask["addr"] = "{{mask.addr}}"
+            mask["code"] = "{{mask.code}}"
+            mask["updated_at"] = "{{mask.updated_at}}".slice(5)
+            mask["latitude"] = "{{mask.latitude}}"
+            mask["longitude"] = "{{mask.longitude}}"
+            mask["name"] = "{{mask.name}}"
+            mask["remain_stat"] = "{{mask.remain_stat}}"
+            mask["stock_at"] = "{{mask.stock_at}}".slice(5)
+            mask["place_type"] = "{{mask.place_type}}"
+            masks.push(mask)
+        {% endfor %}
+
+        var paths = []
+        {% for path in paths %}
+            path = {}
+            path["x"] = "{{path.x}}"
+            path["y"] = "{{path.y}}"
+            path["visited_date"] = "{{path.visited_date}}"
+            path["place_name"] = "{{path.place_name}}"
+            path["patient"] = "{{path.patient}}"
+            paths.push(path)
+        {% endfor %}
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'jquery/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    
+    <script type="text/javascript" src="{% static 'main/js/corona.js' %}"></script>
+
+    <!-- <div class="placeinfo_wrap" style="left:500px; bottom:500px">
+        <div class="placeinfo">
+            <div class="ptitle d-flex justify-content-between align-items-center flex-wrap">
+                <h1 class="m-0">이건 제목입니다.이건 제목입니다.</h1>
+                <p class="m-0">30개 이하</p>
+            </div>
+            <span class="info_content time_at">갱신 시간: <strong>3월 11일 9:35 오후 기준</strong></span>
+            <span class="info_content time_at">입고 시간: <strong>3월 11일 9:35 오후 기준</strong></span>
+            <span class="info_content addr">울산광역시 울주군 범서읍 구영로 86, 2층 202,203호 (GM프라자)</span>
+          </div>
+          <div class="after"></div>
+      </div>     -->
+</body>
+
+</html>
