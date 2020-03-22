@@ -10,6 +10,19 @@
 - **백/프론트 개발**: [전대성](https://nerogarret.tistory.com/)(UNIST 경영공학과)  
 - **디자인**: [김태윤](https://www.facebook.com/taeyoon.kim.79656)(UNIST 창의 디자인 학과)  
 - 기타 문의: coronaulsan@gmail.com
+
+
+### 목차
+1. [기능 설명](#기능-설명)
+2. [배포 가이드 라인](#배포-가이드-라인)
+	1. [초기 설정](#초기-설정)
+	2. [Kakaomap API 설정 관련](#Kakaomap-API-설정-관련)
+	3. [확진자 정보 및 동선 정보 크롤링 관련 (main/views.py)](#확진자-정보-및-동선-정보-크롤링-관련-mainviewspy)
+	4. [/patient_admin 주소를 통해 확진자 동선 추가하기](#patient_admin-주소를-통해-확진자-동선-추가하기)
+	5. [Thumbnail & Favicon](#thumbnail--favicon)
+	6. [서비스 배포 방법](#서비스-배포-방법)
+	7. [배포 직후](#배포-직후)
+	
 ---
 # 기능 설명
 #### 모바일과 데스크탑 화면 모두 호환되어있는 깔끔한 UI의 지역 단위 코로나맵입니다. 세부 기능은 아래와 같습니다.
