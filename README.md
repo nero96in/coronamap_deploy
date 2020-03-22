@@ -14,16 +14,22 @@
 # 기능 설명
 #### 모바일과 데스크탑 화면 모두 호환되어있는 깔끔한 UI의 지역 단위 코로나맵입니다. 세부 기능은 아래와 같습니다.
 
-1. 지역 내 공적 마스크 판매처와 현황을 마커로 표시해 줍니다.
-<img width="720" alt="mask-stores" src="https://user-images.githubusercontent.com/49309450/77252324-75794f00-6c96-11ea-82b2-c416455c3a5e.png">
-2. 30일 내에 확진자가 다녀간 동선을 주황색 마커로 표시해 줍니다. 다녀간 지 오래될 수록 색이 옅어집니다.
-<img width="720" alt="patients" src="https://user-images.githubusercontent.com/49309450/77252328-7b6f3000-6c96-11ea-9eba-15c120146062.png">
-3. 공적 마스크 판매처와 현황, 확진자 정보, 확진자 동선 정보 등을 주기적으로 **자동 업데이트**하고 확진자 동선이 업데이트될 시 **메일**로 수신 가능합니다.
-4. 지역 내 선별 진료소를 표시해줍니다.
-<img width="720" alt="hospitals" src="https://user-images.githubusercontent.com/49309450/77252331-7d38f380-6c96-11ea-91a6-2b2f4ffd6eb9.png">
-5. 확진자 동선을 GUI로 쉽고 빠르게 추가할 수 있습니다.
-<img width="720" alt="patient-admin" src="https://user-images.githubusercontent.com/49309450/77252326-79a56c80-6c96-11ea-87e3-e1108a22a4e2.png">
+1. 지역 내 공적 마스크 판매처와 현황을 마커로 표시해 줍니다.  
+<img width="720" alt="mask-stores" src="https://user-images.githubusercontent.com/49309450/77252324-75794f00-6c96-11ea-82b2-c416455c3a5e.png">  
+
+2. 30일 내에 확진자가 다녀간 동선을 주황색 마커로 표시해 줍니다. 다녀간 지 오래될 수록 색이 옅어집니다.  
+<img width="720" alt="patients" src="https://user-images.githubusercontent.com/49309450/77252328-7b6f3000-6c96-11ea-9eba-15c120146062.png">  
+
+3. 공적 마스크 판매처와 현황, 확진자 정보, 확진자 동선 정보 등을 주기적으로 **자동 업데이트**하고 확진자 동선이 업데이트될 시 **메일**로 수신 가능합니다.  
+
+4. 지역 내 선별 진료소를 표시해줍니다.  
+<img width="720" alt="hospitals" src="https://user-images.githubusercontent.com/49309450/77252331-7d38f380-6c96-11ea-91a6-2b2f4ffd6eb9.png">  
+
+5. 확진자 동선을 GUI로 쉽고 빠르게 추가할 수 있습니다.  
+<img width="720" alt="patient-admin" src="https://user-images.githubusercontent.com/49309450/77252326-79a56c80-6c96-11ea-87e3-e1108a22a4e2.png">  
+
 ---
+
 # 배포 가이드 라인
 
 ## 초기 설정
