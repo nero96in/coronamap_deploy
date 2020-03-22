@@ -161,7 +161,7 @@ patients = {
   
 ## 서비스 배포 방법
 
-Django 프로젝트를 배포하신 적이 없다면 [AWS EC2 서비스를 통한 Django 배포 방법 포스트](https://nerogarret.tistory.com/45)를 참고해 주시길 바랍니다.
+Django 프로젝트를 배포하신 적이 없다면 [AWS EC2 서비스를 통한 Django 배포 방법](https://nerogarret.tistory.com/45)을 참고해 주시길 바랍니다.
 
   
 ## 배포 직후
