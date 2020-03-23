@@ -92,7 +92,7 @@ from main import views as main_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.main, name="main"),
-    path('patient_admin', main_views.patient_admin, name="patient_admin"), # 서버명/patient_admin 주소에서 확진자 동선 추가 혹은 삭제 가능.
+    path('patient_admin', main_views.patient_admin, name="patient_admin"), # 서버명/patient_admin 주소에서 확진자 동선 추가/삭제 가능.
     path('path_add', main_views.path_add, name="path_add"),
     path('path_delete', main_views.path_delete, name="path_delete"),
 ]
@@ -115,7 +115,7 @@ urlpatterns = [
 
 #### 1. `get_mask_stores`
 1. 공적 마스크 현황 정보를 가져오고 데이터베이스(`Mask` 모델)에 저장하는 함수. 매 실행시 데이터가 업데이트되는 방식이니 데이터가 쌓이지 않음.
-2. `gu_list` 변수에 자신의 지역의 모든 시, 군, 구를 리스트 형태로 입력. ex) 경상남도 창원시
+2. `gu_list` 변수에 자신의 지역의 모든 시, 군, 구를 리스트 형태로 입력. ex) 경상남도 창원시 마산합포구, 울산광역시 울주군
 
 #### 2. `get_status`
 1. 지역의 확진자 현황 정보를 가져오고 데이터베이스(`Statistics` 모델)에 저장하는 함수. 확진자 수, 완치자 수만 수합하도록 짜여있으나 추가 통계 자료는 커스터마이징 가능. 매 실행시 데이터가 추가되는 것이 아닌, 업데이트되는 방식이니 데이터가 쌓이지 않음.
