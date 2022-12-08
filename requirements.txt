@@ -1,7 +1,7 @@
 asgiref==3.2.3
 beautifulsoup4==4.8.2
 bs4==0.0.1
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 Django==3.0.4
 django-crontab==0.7.1
@@ -16,7 +16,7 @@ urllib3==1.25.8
 asgiref==3.2.3
 beautifulsoup4==4.8.2
 bs4==0.0.1
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 Django==3.0.4
 django-crontab==0.7.1
